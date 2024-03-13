@@ -19,7 +19,7 @@
 
     @media screen and (max-width: 1280px){
         div{
-            margin: 90px 0px 50px;
+            margin: 95px 0px 50px;
         }
     }
 

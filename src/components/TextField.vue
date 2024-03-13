@@ -85,14 +85,15 @@
         border: 1px solid #4D5562;
         border-radius: 25px;
         width: 500px;
-        padding: 20px 30px;
+        padding: 10px 25px 20px;
     }
 
     .box-container > section {
         display: flex;
         gap: 20px;
         justify-content: space-between; 
-        align-items: flex-end;  
+        /* align-items: flex-end;   */
+        align-items: center; 
     }
 
     .box-container > section:last-child{
@@ -100,7 +101,7 @@
     }
 
     .language-box{
-        border-bottom: 1px solid #4D5562;
+        border-bottom: 1px solid #394150;
         padding: 10px 0px;
         font-weight: 600;
         color: #6B7280;
@@ -170,7 +171,7 @@
         background-color: #3662E3;
         color: #F9FAFB;
         font-size: 1rem;
-        padding: 0.8rem 1.5rem;
+        padding: 0.7rem 1.4rem;
         border-radius: 12px;
         border: 1px solid #CDD5E0;
         display: flex;
@@ -187,7 +188,7 @@
         text-align: right;
         color: #868b94;
         font-size: 12px;
-        font-weight: 300;
+        font-weight: 400;
         margin-bottom: 15px;
     }
 
@@ -204,6 +205,11 @@
 
     .textarea:focus{
         outline: none;
+    }
+
+    .switch{
+        width: 30px;
+        height: 30px;
     }
    
    .active{
