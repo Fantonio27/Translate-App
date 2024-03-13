@@ -27,7 +27,7 @@
       <div>
         <textarea 
             id="textField" 
-            rows="8" 
+            rows="6" 
             class="textarea" 
             resize="false" 
             :disabled="!translateTo"

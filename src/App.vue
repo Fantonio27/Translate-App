@@ -96,7 +96,7 @@ import Navbar from './components/Navbar.vue';
     display: flex;
     justify-content: center;
     width: 90%;
-    gap: 20px;
+    gap: 15px;
     margin: auto;
   }
 
