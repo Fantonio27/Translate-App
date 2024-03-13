@@ -9,7 +9,7 @@
 
 <style scoped>
     div{
-        margin: 100px 0px 50px;
+        margin: 100px 0px 100px;
     }
 
     img{
