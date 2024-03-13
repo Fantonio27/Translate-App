@@ -17,6 +17,12 @@
         display: block;
     }
 
+    @media screen and (max-width: 1280px){
+        div{
+            margin: 90px 0px 50px;
+        }
+    }
+
     @media screen and (max-width: 1024px){
         div{
             margin: 30px 0px;

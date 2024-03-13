@@ -83,7 +83,7 @@
 <style scoped>
     .box-container{
         border: 1px solid #4D5562;
-        border-radius: 20px;
+        border-radius: 25px;
         width: 500px;
         padding: 20px 30px;
     }
@@ -153,7 +153,7 @@
     .icon-button{
         background-color: transparent;
         border: 2px solid #4D5562;
-        border-radius: 10px; 
+        border-radius: 12px; 
         width: 35px;
         height:35px;
         position: relative;
