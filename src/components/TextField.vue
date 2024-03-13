@@ -25,10 +25,16 @@
       </section>
 
       <div>
-        <textarea name="" id="textField" rows="8" class="textarea" resize="false">{{ text }}</textarea>
+        <textarea 
+            id="textField" 
+            rows="8" 
+            class="textarea" 
+            resize="false" 
+            v-model="data[translateTo? 'translateFrom': 'translateTo']">{{ text }}
+        </textarea>
         <p class="number-text">{{translateTo? '19/500' : '&nbsp;'}}</p>
       </div>
-      
+
       <section>
         <div>
             <button class="icon-button" style="margin-right: 10px;" @click="speak">
@@ -50,7 +56,12 @@
 <script setup lang="ts">
     import { computed } from 'vue';
 
-    const props = defineProps<{translateTo: boolean, language:string, text:string}>();
+    type dataType = {
+        translateFrom: string,
+        translateTo: string
+    }
+
+    const props = defineProps<{translateTo: boolean, language:string, text:string, data: dataType}>();
     const emit = defineEmits(['changeLanguage', 'switchLanguage']);
 
     const ActiveLang = computed(()=> (lang:string)=> {

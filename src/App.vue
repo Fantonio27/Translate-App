@@ -49,6 +49,7 @@ import Navbar from './components/Navbar.vue';
         :language="languages.firstLanguage" 
         :text="translate.translateFrom" 
         @changeLanguage="(lang)=>{languages.firstLanguage = lang}"
+        :data="translate"
       />
 
       <TextField 
@@ -57,6 +58,7 @@ import Navbar from './components/Navbar.vue';
         :text="translate.translateTo"
         @changeLanguage="(lang)=>{languages.secondLanguage = lang}"
         @switchLanguage="switchLanguage"
+        :data="translate"
       />
     </div>
   </div>
