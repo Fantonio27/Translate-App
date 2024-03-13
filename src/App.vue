@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { reactive, watch } from 'vue';
+  import { reactive } from 'vue';
 import Navbar from './components/Navbar.vue';
   import TextField from './components/TextField.vue';
 
@@ -19,7 +19,11 @@ import Navbar from './components/Navbar.vue';
     secondLanguage: "French"
   })
 
-  const reference = {
+  const reference: {
+    English: string,
+    French: string,
+    Spanish: string
+  }= {
     English: 'en',
     French: 'fr',
     Spanish: 'es'
@@ -49,10 +53,6 @@ import Navbar from './components/Navbar.vue';
     translate.translateFrom = translateTo;
     translate.translateTo = translateFrom;
   }
-
-  // watch(translate,()=>{
-  //   console.log(translate)
-  // })
 
 </script>
 
