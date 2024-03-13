@@ -30,6 +30,7 @@
             rows="8" 
             class="textarea" 
             resize="false" 
+            :disabled="!translateTo"
             v-model="data[translateTo? 'translateFrom': 'translateTo']">{{ text }}
         </textarea>
         <p class="number-text">{{translateTo? '19/500' : '&nbsp;'}}</p>
@@ -45,7 +46,7 @@
             </button>
         </div>
 
-        <button class="translate-button" v-if="translateTo">
+        <button class="translate-button" v-if="translateTo" @click.passive="emit('translation')">
             <img src="../assets/Sort_alfa.svg"> 
             <span>Translate</span>
         </button>
@@ -62,7 +63,7 @@
     }
 
     const props = defineProps<{translateTo: boolean, language:string, text:string, data: dataType}>();
-    const emit = defineEmits(['changeLanguage', 'switchLanguage']);
+    const emit = defineEmits(['changeLanguage', 'switchLanguage', 'translation']);
 
     const ActiveLang = computed(()=> (lang:string)=> {
         return props.language == lang

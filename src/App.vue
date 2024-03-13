@@ -18,24 +18,41 @@ import Navbar from './components/Navbar.vue';
     firstLanguage: "English",
     secondLanguage: "French"
   })
+
+  const reference = {
+    English: 'en',
+    French: 'fr',
+    Spanish: 'es'
+  }
   
-  watch(languages, ()=>{
-    // fetch('https://api.mymemory.translated.net/get?q=Hello,%20how%20are%20you?!&langpair=en|sp')
-    // .then(response => response.json())
-    // .then(data => {
-    //   console.log(data)
-    // })
-    // .catch(error => {
-    //   console.log(error)
-    // })
-  })
+  const translation = async() => {
+    const equal = languages.firstLanguage == languages.secondLanguage
+
+    if(!equal){
+      const response = await fetch(`https://api.mymemory.translated.net/get?q=${translate.translateFrom}?!&langpair=${reference[languages.firstLanguage]}|${reference[languages.secondLanguage]}`)
+      const data = await response.json()
+
+      translate.translateTo = equal? '' : data.matches[0].translation;
+    }else{
+      translate.translateTo = 'Please select two Distinct Languages'
+    }
+  
+  }
 
   const switchLanguage = () => {
     const {firstLanguage, secondLanguage} = languages
+    const {translateFrom, translateTo} = translate
 
     languages.firstLanguage = secondLanguage;
     languages.secondLanguage = firstLanguage;
+
+    translate.translateFrom = translateTo;
+    translate.translateTo = translateFrom;
   }
+
+  // watch(translate,()=>{
+  //   console.log(translate)
+  // })
 
 </script>
 
@@ -49,6 +66,7 @@ import Navbar from './components/Navbar.vue';
         :language="languages.firstLanguage" 
         :text="translate.translateFrom" 
         @changeLanguage="(lang)=>{languages.firstLanguage = lang}"
+        @translation="translation"
         :data="translate"
       />
 
