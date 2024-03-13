@@ -11,10 +11,13 @@ import Navbar from './components/Navbar.vue';
     translateTo: "Bonjour, comment vas-tu?"
   });
 
-  const languages = reactive<{
+  type Cascsac = {
+    
     firstLanguage: string,
     secondLanguage: string
-  }>({
+  
+  } 
+  const languages = reactive<Cascsac>({
     firstLanguage: "English",
     secondLanguage: "French"
   })
@@ -33,12 +36,13 @@ import Navbar from './components/Navbar.vue';
     const equal = languages.firstLanguage == languages.secondLanguage
    
     if(!equal){
-      const ref1 = reference.English
-      const ref2 = reference.French
-      // [languages.firstLanguage]
-      // [languages.secondLanguage]
 
-      const response = await fetch(`https://api.mymemory.translated.net/get?q=${translate.translateFrom}&langpair=${ref2}|${ref1}`)
+      const {firstLanguage, secondLanguage} = languages
+      
+      const to = reference[firstLanguage as keyof typeof reference]
+      const from = reference[secondLanguage as keyof typeof reference]
+
+      const response = await fetch(`https://api.mymemory.translated.net/get?q=${translate.translateFrom}&langpair=${to}|${from}`)
       const data = await response.json()
 
       translate.translateTo = equal? '' : data.matches[0].translation;
