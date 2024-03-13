@@ -31,9 +31,11 @@ import Navbar from './components/Navbar.vue';
   
   const translation = async() => {
     const equal = languages.firstLanguage == languages.secondLanguage
-
+   
     if(!equal){
-      const response = await fetch(`https://api.mymemory.translated.net/get?q=${translate.translateFrom}&langpair=${reference[languages.firstLanguage]}|${reference[languages.secondLanguage]}`)
+      const {firstLanguage, secondLanguage} = languages
+
+      const response = await fetch(`https://api.mymemory.translated.net/get?q=${translate.translateFrom}&langpair=${reference[firstLanguage]}|${reference[secondLanguage]}`)
       const data = await response.json()
 
       translate.translateTo = equal? '' : data.matches[0].translation;
